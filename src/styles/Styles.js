@@ -10,6 +10,7 @@ const Container = styled.div`
   background-color: #8c11be;
   color: white;
   font-family: "Raleway", sans-serif;
+
   a {
     margin-top: 40px;
     color: currentColor;
