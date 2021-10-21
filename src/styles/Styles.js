@@ -23,6 +23,11 @@ const MainTitle = styled.h1`
   margin: 30px 0px;
 `;
 
+const PageTitle = styled.h2`
+  font-size: 30px;
+  margin: 30px 0px;
+`;
+
 const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
@@ -56,6 +61,25 @@ const Buttons = styled.button`
   font-family: "Raleway", sans-serif;
 `;
 
-const NewRecord = styled.button``;
+const NewRecord = styled.button`
+  width: 100%;
+  height: 120px;
+  background-color: #a328d6;
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 10px 0px;
+  border-radius: 5px;
+  font-family: "Raleway", sans-serif;
+`;
 
-export { MainTitle, Inputs, Buttons, NewRecord, Container, FormWrapper };
+export {
+  MainTitle,
+  Inputs,
+  Buttons,
+  NewRecord,
+  Container,
+  FormWrapper,
+  PageTitle,
+};

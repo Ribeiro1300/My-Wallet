@@ -2,7 +2,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import NewEntry from "./pages/NewEntry";
 import NewWithdraw from "./pages/NewWithdraw";
-import Record from "./pages/Record";
+import Records from "./pages/Records";
 import Register from "./pages/Register";
 import React from "react";
 
@@ -23,7 +23,7 @@ function App() {
           <NewWithdraw />
         </Route>
         <Route path="/records">
-          <Record />
+          <Records />
         </Route>
       </Switch>
     </BrowserRouter>
