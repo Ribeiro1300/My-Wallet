@@ -73,6 +73,20 @@ const NewRecord = styled.button`
   margin: 10px 0px;
   border-radius: 5px;
   font-family: "Raleway", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 5px;
+
+  p {
+    width: 100px;
+    text-align: left;
+  }
+
+  ion-icon {
+    font-size: 30px;
+  }
 `;
 
 export {
