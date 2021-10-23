@@ -10,11 +10,10 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function Register() {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [checkPassword, setCheckPassword] = useState();
-
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [checkPassword, setCheckPassword] = useState("");
   const history = useHistory();
 
   async function registerUser(event) {

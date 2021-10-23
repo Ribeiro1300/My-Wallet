@@ -1,24 +1,46 @@
 /* eslint-disable react/prop-types */
 import { NewRecord, Container, PageTitle } from "../styles/Styles";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
-import React from "react";
-
-import { data } from "../tests/data";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function Records() {
+  const [data, setData] = useState(undefined);
+  const history = useHistory();
+
+  useEffect(async () => {
+    if (!localStorage.getItem("token")) {
+      alert("Faça login!");
+      history.push("/");
+    }
+    const config = {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
+
+    const result = await axios.get("http://localhost:4000/records", config);
+    console.log(result.data);
+    setData(result.data);
+  }, []);
+
+  function logout() {
+    localStorage.removeItem("token");
+    history.push("/");
+  }
   return (
     <Container>
       <TitleWrapper>
         <PageTitle>Olá, Fulano</PageTitle>
-        <ion-icon name="exit-outline"></ion-icon>
+        <ion-icon onClick={logout} name="exit-outline"></ion-icon>
       </TitleWrapper>
 
       <WhiteBoard>
         {!data ? (
           <h3>Não há registros de entrada ou saída</h3>
         ) : (
-          <BoardContent />
+          <BoardContent data={data} />
         )}
       </WhiteBoard>
       <ButtonsWrapper>
@@ -39,7 +61,7 @@ export default function Records() {
   );
 }
 
-function BoardContent() {
+function BoardContent({ data }) {
   let sum = 0;
   data.map((info) => {
     sum += info.value;
@@ -62,7 +84,7 @@ function AllRecords(props) {
     <List>
       <div>
         <Date>{props.info.date}</Date>
-        <Title>{props.info.title}</Title>
+        <Title>{props.info.description}</Title>
       </div>
 
       <Value type={props.info.type}>{props.info.value.toFixed(2)}</Value>
