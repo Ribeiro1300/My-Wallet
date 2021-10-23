@@ -21,7 +21,6 @@ export default function Records() {
     };
 
     const result = await axios.get("http://localhost:4000/records", config);
-    console.log(result.data);
     setData(result.data);
   }, []);
 
