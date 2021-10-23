@@ -18,14 +18,14 @@ const data = [
     title: "teste",
     type: "withdraw",
     date: "30/10",
-    value: 200.20,
+    value: -200.20,
   },
   {
     id: 5,
     title: "Salário",
     type: "withdraw",
     date: "30/10",
-    value: 300,
+    value: -300,
   },
 ];
 
