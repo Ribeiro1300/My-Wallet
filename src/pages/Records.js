@@ -24,7 +24,23 @@ export default function Records() {
     setData(result.data);
   }, []);
 
-  function logout() {
+  async function logout() {
+    try {
+      const body = {
+        token: localStorage.getItem("token"),
+      };
+      const result = await axios.post(
+        "http://localhost:4000/deleteSession",
+        body
+      );
+      if (result.status == 201) {
+        alert("Logout feito com sucesso");
+      }
+    } catch (error) {
+      if (error.request.status == 409) {
+        alert("Falha ao fazer logout");
+      }
+    }
     localStorage.removeItem("token");
     history.push("/");
   }

@@ -18,20 +18,20 @@ export default function Register() {
 
   async function registerUser(event) {
     event.preventDefault();
-    const body = { name: name, email: email, password: password };
+    try {
+      const body = { name: name, email: email, password: password };
 
-    if (password != checkPassword) return alert("Senhas diferentes");
+      if (password != checkPassword) return alert("Senhas diferentes");
 
-    const allEmails = await axios.get("http://localhost:4000/users");
-    const emailExists = allEmails.data.some((info) => {
-      return info.email == email;
-    });
-    if (!emailExists) {
       const result = await axios.post("http://localhost:4000/users", body);
-      console.log(result);
-      history.push("/");
-    } else {
-      alert("Email já cadastrado");
+      if (result.status == 201) {
+        alert("Usuário cadastrado com sucesso");
+        history.push("/");
+      }
+    } catch (error) {
+      if (error.request.status == 409) {
+        alert("Email já cadastrado");
+      }
     }
   }
 
