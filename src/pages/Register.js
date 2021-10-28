@@ -23,7 +23,7 @@ export default function Register() {
 
       if (password != checkPassword) return alert("Senhas diferentes");
 
-      const result = await axios.post("http://localhost:4000/users", body);
+      const result = await axios.post("https://my-wallet-projeto14.herokuapp.com/users", body);
       if (result.status == 201) {
         alert("Usuário cadastrado com sucesso");
         history.push("/");
