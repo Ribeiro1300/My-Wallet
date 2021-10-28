@@ -36,7 +36,7 @@ export default function NewWithdraw() {
     };
 
     const result = await axios.post(
-      "http://localhost:4000/records",
+      "https://my-wallet-projeto14.herokuapp.com/records",
       body,
       config
     );
