@@ -20,7 +20,7 @@ export default function Records() {
       },
     };
 
-    const result = await axios.get("https://my-wallet-projeto14.herokuapp.com/records", config);
+    const result = await axios.get("http://localhost:4000/records", config);
     setData(result.data);
   }, []);
 
@@ -30,7 +30,7 @@ export default function Records() {
         token: localStorage.getItem("token"),
       };
       const result = await axios.post(
-        "https://my-wallet-projeto14.herokuapp.com/deleteSession",
+        "http://localhost:4000/deleteSession",
         body
       );
       if (result.status == 201) {
@@ -47,7 +47,7 @@ export default function Records() {
   return (
     <Container>
       <TitleWrapper>
-        <PageTitle>Olá, Fulano</PageTitle>
+        <PageTitle>Olá, {data ? data.name : null}</PageTitle>
         <ion-icon onClick={logout} name="exit-outline"></ion-icon>
       </TitleWrapper>
 
@@ -55,7 +55,7 @@ export default function Records() {
         {!data ? (
           <h3>Não há registros de entrada ou saída</h3>
         ) : (
-          <BoardContent data={data} />
+          <BoardContent key="1" data={data.records} />
         )}
       </WhiteBoard>
       <ButtonsWrapper>
