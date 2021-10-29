@@ -20,7 +20,7 @@ export default function Records() {
       },
     };
 
-    const result = await axios.get("http://localhost:4000/records", config);
+    const result = await axios.get("https://my-wallet-projeto14.herokuapp.com/records", config);
     setData(result.data);
   }, []);
 
@@ -30,7 +30,7 @@ export default function Records() {
         token: localStorage.getItem("token"),
       };
       const result = await axios.post(
-        "http://localhost:4000/deleteSession",
+        "https://my-wallet-projeto14.herokuapp.com/deleteSession",
         body
       );
       if (result.status == 201) {
