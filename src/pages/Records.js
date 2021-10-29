@@ -47,7 +47,7 @@ export default function Records() {
   return (
     <Container>
       <TitleWrapper>
-        <PageTitle>Olá, Fulano</PageTitle>
+        <PageTitle>Olá, {data ? data.name : null}</PageTitle>
         <ion-icon onClick={logout} name="exit-outline"></ion-icon>
       </TitleWrapper>
 
@@ -55,7 +55,7 @@ export default function Records() {
         {!data ? (
           <h3>Não há registros de entrada ou saída</h3>
         ) : (
-          <BoardContent data={data} />
+          <BoardContent key="1" data={data.records} />
         )}
       </WhiteBoard>
       <ButtonsWrapper>
