@@ -3,7 +3,7 @@
 
 
 <p align="center" >
-<img src="./src/assets/my-wallet.png" width="700" height="300"/>
+<img src="./src/assets/my-wallet.png" width="300" height="700"/>
 </p>
 
 Try it out now at https://projeto-14-my-wallet-frontend.vercel.app
