@@ -36,7 +36,7 @@ export default function NewWithdraw() {
     };
 
     const result = await axios.post(
-      "http://localhost:4000/records",
+      process.env.REACT_APP_BASE_URL + "/records",
       body,
       config
     );

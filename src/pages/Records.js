@@ -20,7 +20,10 @@ export default function Records() {
       },
     };
 
-    const result = await axios.get("http://localhost:4000/records", config);
+    const result = await axios.get(
+      process.env.REACT_APP_BASE_URL + "/records",
+      config
+    );
     setData(result.data);
   }, []);
 
@@ -30,7 +33,7 @@ export default function Records() {
         token: localStorage.getItem("token"),
       };
       const result = await axios.post(
-        "http://localhost:4000/deleteSession",
+        process.env.REACT_APP_BASE_URL + "/deleteSession",
         body
       );
       if (result.status == 201) {
